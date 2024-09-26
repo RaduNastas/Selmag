@@ -1,6 +1,5 @@
 package ag.selm.customer.controller;
 
-
 import ag.selm.customer.client.FavouriteProductsClient;
 import ag.selm.customer.client.ProductsClient;
 import ag.selm.customer.entity.FavouriteProduct;
@@ -94,4 +93,5 @@ class ProductsControllerTest {
         verifyNoMoreInteractions(this.productsClient, this.favouriteProductsClient);
 
     }
+
 }
