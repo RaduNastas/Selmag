@@ -1,0 +1,51 @@
+selmag:
+  services:
+    catalogue:
+      uri: http://localhost:8081
+    feedback:
+      uri: http://localhost:8084
+server:
+  port: 8083
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8085
+        instance:
+          name: customer-app
+          service-host-type: ip
+        enabled: true
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8082/realms/selmag
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: customer-app
+            client-secret: Ji159gzPseiDbvi6MMWQraAdITf6wgcr
+            scope:
+              - openid
+              - view_catalogue
+          metrics:
+            provider: keycloak
+            client-id: customer-app-metrics-client
+            client-secret: 8cFW6XDv9rtSfTTMFsQmfqEWeuwpXVgi
+            authorization-grant-type: client_credentials
+            scope:
+              - metrics_server
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8082/realms/selmag
+    management:
+      health:
+        livenessstate:
+          enabled: true
+        readinessstate:
+          enabled: true
+      endpoints:
+        web:
+          exposure:
+            include: '*'
