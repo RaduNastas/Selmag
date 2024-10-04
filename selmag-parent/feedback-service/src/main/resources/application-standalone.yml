@@ -4,10 +4,11 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:8085
-        instance:
-          service-host-type:
-        enabled: true
+       url: http://localhost:8085
+       instance:
+        name: feedback-service
+        service-host-type: ip
+       enabled: true
   data:
     mongodb:
       uri: mongodb://localhost:27017/feedback

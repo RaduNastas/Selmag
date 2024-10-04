@@ -16,11 +16,11 @@ spring:
             scope:
               - metrics
             client-id: admin-service
-            client-secret: Bs2sczSDJMy9loLPChAARsA4dR5CJpMV
+            client-secret: 7SfXZ0bVPLFjYUAHWwbNloveP2fLbAYG
           login:
             provider: keycloak
             scope:
               - metrics
               - openid
             client-id: admin-service
-            client-secret: Bs2sczSDJMy9loLPChAARsA4dR5CJpMV
+            client-secret: 7SfXZ0bVPLFjYUAHWwbNloveP2fLbAYG
