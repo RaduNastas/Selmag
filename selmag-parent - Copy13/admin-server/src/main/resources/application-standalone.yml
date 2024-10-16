@@ -5,7 +5,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8082/realms/selmag
+          issuer-uri: http://172.19.64.1:8082/realms/selmag
       client:
         provider:
           keycloak:

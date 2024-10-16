@@ -1,0 +1,46 @@
+server:
+  port: 8084
+spring:
+  boot:
+    admin:
+      client:
+       url: http://localhost:8085
+       instance:
+        name: feedback-service
+        service-host-type: ip
+       enabled: true
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/feedback
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8082/realms/selmag
+      client:
+        registration:
+          keycloak:
+            client-id: feedback-service-metrics-client
+            client-secret: oY8aVEjGn5eyuDiBKGFd9P11VPlKwCWL
+            authorization-grant-type: client_credentials
+            scope:
+              - metrics_server
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8082/realms/selmag
+
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: feedback-service-swagger-ui
+      use-pkce-with-authorization-code-grant: true
+keycloak:
+  uri: http://localhost:8082
+management:
+  health:
+    livenessstate:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'

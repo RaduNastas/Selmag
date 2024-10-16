@@ -1,0 +1,14 @@
+scrape_configs:
+  - job_name: selmag_admin_service
+    static_configs:
+      - targets: ["http://172.19.64.1:8085"]
+    metrics_path: /actuator/prometheus
+    oauth2:
+      client_id: victoria-metrics
+      client_secret: tdtzc6RA4L1bo06ZAMbDjNNbCQko051S
+      token_url: http://172.19.64.1:8082/re…col/openid-connect/token
+      scopes:
+        - metrics
+      endpoint_params:
+        grant_type: client_credentials
+
